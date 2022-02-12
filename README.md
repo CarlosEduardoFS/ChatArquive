@@ -7,4 +7,4 @@ Welcome, this repository is nothing more than a training of the contents learned
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
-- `UML`: The folder where the program's UML diagram is present
+- `Documentation`: The folder where the program's UML diagram is present
