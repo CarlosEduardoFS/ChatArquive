@@ -8,12 +8,14 @@ public class Account {
     private long id;
     private String nameUser;
     private Email email;
+    private String folder;
     private List<Friends> listFriends = new LinkedList<>();
 
-    public Account(long id, String nameUser, Email email) {
+    public Account(long id, String nameUser, Email email, String folder) {
         this.id = id;
         this.nameUser = nameUser;
         this.email = email;
+        this.folder = folder;
     }
 
     public long getId() {
@@ -44,8 +46,16 @@ public class Account {
         return listFriends;
     }
 
-    public void setListFriends(Friends friends) {
+    public void addListFriends(Friends friends) {
         listFriends.add(friends);
+    }
+
+    public void setListFriends(List<Friends> listFriends) {
+        this.listFriends = listFriends;
+    }
+
+    public void setFolder(String folder) {
+        this.folder = folder;
     }
 
     @Override
@@ -53,6 +63,8 @@ public class Account {
         return "email=" + email + ", id=" + id + ", listFriends=" + listFriends + ", nameUser=" + nameUser;
     }
 
-    
+    public String getFolder() {
+        return folder;
+    }
     
 }

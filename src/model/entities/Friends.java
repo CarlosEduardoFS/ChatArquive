@@ -1,15 +1,11 @@
 package model.entities;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class Friends {
 
     private long id;
     private String name;
     private Chat chat;
-
-    List<Message> listMessage = new LinkedList<>();
     
     public Friends(long id, String name, Chat chat) {
         this.id = id;
@@ -41,11 +37,11 @@ public class Friends {
         this.chat = chat;
     }
 
-    public List<Message> getListMessage() {
-        return listMessage;
-    }
-
-    public void setListMessage(Message msg) {
-        listMessage.add(msg);
+    @Override
+    public String toString() {
+        return id+","+name+","+ chat.getPath().getPathSent()+","+chat.getPath().getPathDestiny();
     } 
+
+    
+
 }

@@ -7,14 +7,21 @@ public class Message implements Comparable<Message>{
 
     private String msg;
     private Date date;
-    private Chat chat;
+    private Path path;
+    private String nameUser;
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-    public Message(String msg, Chat chat) {
+    public Message(String msg, String nameUser) {
+        this.msg = msg;
+        this.nameUser = nameUser;
+    }
+
+    public Message(String msg, Path path,String nameUser) {
         this.msg = msg;
         date = new Date();
-        this.chat = chat;
+        this.path = path;
+        this.nameUser = nameUser;
     }
 
     public String getMsg() {
@@ -33,16 +40,20 @@ public class Message implements Comparable<Message>{
         this.date = date;
     }
 
-    public Chat getChat() {
-        return chat;
+    public Path getPath() {
+        return path;
     }
 
-    public void setChat(Chat chat) {
-        this.chat = chat;
+    public void setPath(Path path) {
+        this.path = path;
     }
 
-    public static SimpleDateFormat getSdf() {
-        return sdf;
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
     @Override
@@ -52,6 +63,10 @@ public class Message implements Comparable<Message>{
 
     @Override
     public String toString() {
+        return sdf.format(date)+","+ msg + ","+ path+","+nameUser;
+    }
+
+    public String toMessage() {
         return "[" + sdf.format(date)+"] "+ msg;
     }
 }
