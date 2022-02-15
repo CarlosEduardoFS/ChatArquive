@@ -21,12 +21,26 @@ import model.service.interfaces.Arquive;
 
 public class ArquiveService implements Arquive {
 
+    
+    public void WriteArquive(String msg, String path) {
+        
+        try (BufferedWriter bf = new BufferedWriter(new FileWriter(path))){
+
+            bf.write(changeTheComma(msg));
+            bf.newLine();
+
+        }catch (IOException e){
+            System.out.println("Error: Could not write message || "+e.getMessage());
+        }
+        
+    }
+
     @Override
     public void WriteArquiveSent(Message message) {
         
         try (BufferedWriter bf = new BufferedWriter(new FileWriter(message.getPath().getPathSent(), true))){
 
-            bf.write(message.toString());
+            bf.write(changeTheComma(message.toString()));
             bf.newLine();
 
         }catch (IOException e){
@@ -40,12 +54,49 @@ public class ArquiveService implements Arquive {
         
         try (BufferedWriter bf = new BufferedWriter(new FileWriter(message.getPath().getPathDestiny(), true))){
 
-            bf.write(message.toString());
+            bf.write(changeTheComma(message.toString()));
             bf.newLine();
 
         }catch (IOException e){
             System.out.println("Error: Could not write message || "+e.getMessage());
         }  
+    }
+
+    private String changeTheComma (String msg){
+
+        msg = msg.replace(",", "/*");
+
+        return msg;
+    }
+
+    private String insertingComma (String msg){
+
+        msg = msg.replace("/*",",");
+
+        return msg;
+    }
+
+    private void getMessageComma(String[] values){
+        for (int i = 0; i < values.length; i++){
+            values[i] = insertingComma(values[i]);
+        }
+    }
+
+    public Message getValue(String path){
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+
+            String line = br.readLine();
+            Message msg = new Message(line);
+
+            return msg;
+
+
+        }catch (IOException e){
+            System.out.println("Error: Could not read from file || "+e.getMessage());
+        }
+        return null;
+
     }
 
     @Override
@@ -59,6 +110,7 @@ public class ArquiveService implements Arquive {
             String line = br.readLine();
             while (line != null){
                 String[] values = line.split(",");
+                getMessageComma(values);
                 Message msg = new Message(values[1],values[4]);
                 msg.setDate(sdf.parse(values[0]));
                 Path p = new Path(values[2], values[3]);
@@ -86,6 +138,7 @@ public class ArquiveService implements Arquive {
             String line = br.readLine();
             while(line != null){
                 String[] s = line.split(",");
+                getMessageComma(s);
                 list.add(new Friends(Long.parseLong(s[0]), s[1], new Chat(new Path(s[2], s[3]))));
                 line = br.readLine();        
             }

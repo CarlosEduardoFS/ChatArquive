@@ -66,7 +66,7 @@ public class Email implements Comparable<Email> {
     public String toString() {
         return "Email: "+
                 email+
-                "| Password: "+
+                ", Password: "+
                 password;
     }   
     

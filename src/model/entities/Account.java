@@ -58,13 +58,12 @@ public class Account {
         this.folder = folder;
     }
 
-    @Override
-    public String toString() {
-        return "email=" + email + ", id=" + id + ", listFriends=" + listFriends + ", nameUser=" + nameUser;
-    }
-
     public String getFolder() {
         return folder;
     }
-    
+
+    @Override
+    public String toString() {
+        return "NameUser: " + nameUser+ ", " + email +", id: " + id;
+    }    
 }

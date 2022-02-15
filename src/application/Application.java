@@ -1,42 +1,63 @@
 package application;
 
-import java.io.IOException;
+import java.util.Scanner;
 import java.util.List;
 
+import model.entities.Account;
+import model.entities.Chat;
+import model.entities.Email;
 import model.entities.Message;
 import model.entities.Path;
-import model.exception.ServiceExeption;
+import model.exception.ProgramException;
 import model.service.ArquiveService;
-import model.service.CreateArquiveService;
-import model.service.interfaces.CreateArquive;
+
 
 public class Application {
     
+    // path data folder
     static final String PATH_DATA = "C:\\ChatArquive\\data"; 
 
-    public static void main(String[] args) throws IOException, ServiceExeption, InterruptedException{ 
+    //arquives name
+    static final String INVITATIONS_NAME = "\\convites.txt";
+    static final String FRIENDS_NAME = "\\friends.txt";
 
-        CreateArquive ca = new CreateArquiveService();
+    // folder name
+    static final String chatFriendsPath = "\\chatfriends";
+
+    public static void main(String[] args) throws ProgramException{ 
+
+        Scanner sc = new Scanner(System.in);
         ArquiveService as = new ArquiveService();
-        
+        Account account = new Account(10, "Eduardo",new Email("eduardo@gamil.com", "123"),"C:\\temp");
 
-        String teste = PATH_DATA+"\\teste.txt";
-        Message msg = new Message("Teste mensagem", new Path(teste, teste), "Eduardo");
+        UIEXIBITION.chat(sc, UIEXIBITION.listChatFrineds(sc, "C:\\ChatArquive\\data\\eduardo\\friends.txt", as), account);
 
-        ca.createArquichive(msg.getPath().getPathSent());
-        
-        as.WriteArquiveDestiny(msg);
+        //Account ac = UIEXIBITION.register(sc, as, PATH_DATA+"\\qtdAccount.txt");
 
-        //Thread.sleep(61000);
-        
-        Message msg2 = new Message("Teste 2", new Path(teste, teste), "Lucas");
-        as.WriteArquiveDestiny(msg2);
-        List<Message> list = as.getMenssages(msg.getPath().getPathSent());
+        //System.out.println("\n"+ac+"\n");
 
-        System.out.println("\n\n");
-        for (Message m : list)
-            System.out.println(m.toMessage());
-        
-        System.out.println("\n\n");
+        /*
+        Account account = new Account(10, "Eduardo",new Email("eduardo@gamil.com", "123"),"C:\\temp");
+
+        List<Message> list = as.getMenssages(PATH_DATA+"\\teste.txt"); 
+
+        Chat chat = new Chat(new Path(PATH_DATA+"\\teste.txt", PATH_DATA+"\\teste.txt"));
+
+        chat.setListMsg(list);
+
+        UIEXIBITION.chat(sc, chat, account);
+        */
+
+/*
+        int id = UIEXIBITION.addFriendScreen(sc);
+        System.out.println(id);*/
+
+        //int option = UIEXIBITION.UserMenu(sc, account);
+
+        //System.out.println(option);
+
+        //Email email = UIEXIBITION.login(sc);
+
+        //System.out.println(email);
     }
 }

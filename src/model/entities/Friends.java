@@ -6,6 +6,8 @@ public class Friends {
     private long id;
     private String name;
     private Chat chat;
+
+    public Friends(){}
     
     public Friends(long id, String name, Chat chat) {
         this.id = id;

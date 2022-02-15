@@ -24,6 +24,10 @@ public class Message implements Comparable<Message>{
         this.nameUser = nameUser;
     }
 
+    public Message(String msg) {
+        this.msg = msg;
+    }
+
     public String getMsg() {
         return msg;
     }
