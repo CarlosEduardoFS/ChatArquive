@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.File;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,17 +16,32 @@ import java.util.List;
 import model.entities.Friends;
 import model.entities.Message;
 import model.entities.Path;
+import model.exception.ServiceExeption;
+import model.entities.Account;
 import model.entities.Chat;
-
+import model.entities.Email;
 import model.service.interfaces.Arquive;
 
 public class ArquiveService implements Arquive {
 
-    
+    @Override
     public void WriteArquive(String msg, String path) {
         
         try (BufferedWriter bf = new BufferedWriter(new FileWriter(path))){
+            
+            bf.write(changeTheComma(msg));
 
+        }catch (IOException e){
+            System.out.println("Error: Could not write message || "+e.getMessage());
+        }
+        
+    }
+
+    @Override
+    public void WriteArquiveDontErase(String msg, String path) {
+        
+        try (BufferedWriter bf = new BufferedWriter(new FileWriter(path, true))){
+            
             bf.write(changeTheComma(msg));
             bf.newLine();
 
@@ -82,6 +98,7 @@ public class ArquiveService implements Arquive {
         }
     }
 
+    @Override
     public Message getValue(String path){
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
@@ -109,6 +126,7 @@ public class ArquiveService implements Arquive {
 
             String line = br.readLine();
             while (line != null){
+                line = insertingComma(line);
                 String[] values = line.split(",");
                 getMessageComma(values);
                 Message msg = new Message(values[1],values[4]);
@@ -136,11 +154,15 @@ public class ArquiveService implements Arquive {
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
 
             String line = br.readLine();
+            if (line != null)
+                line = insertingComma(line);
             while(line != null){
                 String[] s = line.split(",");
                 getMessageComma(s);
                 list.add(new Friends(Long.parseLong(s[0]), s[1], new Chat(new Path(s[2], s[3]))));
-                line = br.readLine();        
+                line = br.readLine(); 
+                if (line != null)
+                    line = insertingComma(line);       
             }
 
         } catch (IOException e){
@@ -150,6 +172,93 @@ public class ArquiveService implements Arquive {
         return list;
     }
 
+    @Override
+    public List<Account> getAccounts(String path) {
+        
+        List<Account> list = new LinkedList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+
+            String line = br.readLine();
+            while(line != null){
+               line = insertingComma(line);
+                String[] s = line.split(",");
+                list.add(new Account(Long.parseLong(s[0]),s[1], new Email(s[2], s[3]), s[4]));
+                line = br.readLine();        
+            }
+
+        } catch (IOException e){
+            System.out.println("Error list account || "+e.getMessage());
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<Email> getEmail(String path) {
+        
+        List<Email> list = new LinkedList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+
+            String line = br.readLine();
+            while(line != null){
+                line = insertingComma(line);
+                String[] s = line.split(",");
+                list.add(new Email(s[0],s[1]));
+                line = br.readLine();        
+            }
+
+        } catch (IOException e){
+            System.out.println("Error list account || "+e.getMessage());
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<Account> getFrindes(String path) {
+        
+        List<Account> list = new LinkedList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))){
+
+            String line = br.readLine();
+            while(line != null){
+                line = insertingComma(line);
+                String[] s = line.split(",");
+                list.add(new Account(Long.parseLong(s[0]), s[1], new Email(s[2], "****"), "..."));
+                line = br.readLine();        
+            }
+
+        } catch (IOException e){
+            System.out.println("Error list account || "+e.getMessage());
+        }
+
+        return list;
+    }
    
+    @Override
+    public void eraseLine(String path, int position, List<Friends> listF, CreateArquiveService ca) throws ServiceExeption {
+
+        File f = new File(path);
+        System.out.println(f.delete());
+        ca.createArquichive(path);
+
+        try (BufferedWriter bf = new BufferedWriter(new FileWriter(path))){
+
+            for (int i = 0; i < listF.size(); i++){
+                Friends friend = listF.get(i);
+                if ( i != position){
+                    bf.write(friend.toString());
+                    bf.newLine();
+                }
+            }
+
+        } catch (IOException e){
+            System.out.println("Error erase line  || "+e.getMessage());
+        }
+    }
+
     
 }

@@ -42,8 +42,6 @@ public class Friends {
     @Override
     public String toString() {
         return id+","+name+","+ chat.getPath().getPathSent()+","+chat.getPath().getPathDestiny();
-    } 
-
-    
+    }  
 
 }

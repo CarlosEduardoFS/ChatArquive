@@ -10,6 +10,7 @@ public class Account {
     private Email email;
     private String folder;
     private List<Friends> listFriends = new LinkedList<>();
+    private List<Friends> listInvitations = new LinkedList<>();
 
     public Account(long id, String nameUser, Email email, String folder) {
         this.id = id;
@@ -46,8 +47,21 @@ public class Account {
         return listFriends;
     }
 
+    public void addListInvitations(Friends friends) {
+        listInvitations.add(friends);
+    }
+
+    public List<Friends> getListInvitations() {
+        return listInvitations;
+    }
+
     public void addListFriends(Friends friends) {
         listFriends.add(friends);
+    }
+
+    public void setlistInvitations(List<Friends> listInvitations){
+        this.listInvitations = listInvitations;
+
     }
 
     public void setListFriends(List<Friends> listFriends) {
@@ -64,6 +78,10 @@ public class Account {
 
     @Override
     public String toString() {
-        return "NameUser: " + nameUser+ ", " + email +", id: " + id;
-    }    
+        return  id+","+nameUser+ ", " + email.getEmail();
+    }  
+    
+    public String toAccount(){
+        return id + ","+nameUser+ "," + email.toEmail()+","+folder;
+    }
 }

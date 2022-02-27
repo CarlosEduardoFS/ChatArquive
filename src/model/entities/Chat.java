@@ -5,12 +5,21 @@ import java.util.List;
 
 public class Chat {
 
+    private int position;
     private Path path;
 
     private List<Message> listMsg = new LinkedList<>();
     
     public Chat(Path path) {
         this.path = path;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    public void setPosition(int position){
+        this.position = position;
     }
 
     public Path getPath() {
@@ -32,7 +41,7 @@ public class Chat {
 
     @Override
     public String toString() {
-        return listMsg + ", "+ path;
+        return listMsg + ","+ path;
     }
 
 }

@@ -12,24 +12,20 @@ import model.service.interfaces.ChatS;
 public class ChatService implements ChatS{
 
     @Override
-    public void listFullChat(Account account) {
-        
-        ArquiveService as = new ArquiveService();
+    public void listFullChat(Account account, ArquiveService as) {
 
         account.setListFriends(as.getFriends(account.getFolder()+"\\friends.txt"));
         
     }
 
     @Override
-    public Chat coinversation(int num, Account account) {
-        
-        ArquiveService as = new ArquiveService();
+    public Chat coinversation(int num, Account account, ArquiveService as) {
 
         List<Friends> list = as.getFriends(account.getFolder()+"\\friends.txt");
-        Friends f = list.get(num);
+        Friends fiends = list.get(num);
 
-        Chat chat = new Chat(f.getChat().getPath());
-        chat.setListMsg(as.getMenssages(f.getChat().getPath().getPathSent()));
+        Chat chat = new Chat(fiends.getChat().getPath());
+        chat.setListMsg(as.getMenssages(fiends.getChat().getPath().getPathSent()));
 
         return chat;
     }
