@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nvgTaPYgvRoQS0rvhYaf" name="Page-1">
-        <mxGraphModel dx="1074" dy="1959" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1180" dy="1959" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -18,7 +18,7 @@
                         <mxRectangle x="50" y="80" width="60" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="74" value="- id: long&#10;- nameUser: String&#10;- folder: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="73" vertex="1">
+                <mxCell id="74" value="- id: long&#10;- nameUser: String&#10;- folder: String&#10;- listInvitation: List&lt;Friends&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="73" vertex="1">
                     <mxGeometry y="26" width="210" height="74" as="geometry"/>
                 </mxCell>
                 <mxCell id="75" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="73" vertex="1">
@@ -108,7 +108,7 @@
                     <mxGeometry x="10" y="700" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="165" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;CreateArquive&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ createNewFolder(String path): void&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;+ createArquichive(String path):void&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="730" width="271" height="80" as="geometry"/>
+                    <mxGeometry x="14.5" y="730" width="271" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="167" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.475;exitY=0.75;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="103" target="165" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
@@ -116,8 +116,8 @@
                         <mxPoint x="490" y="720" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="168" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Arquive&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;span&gt;+ WriteArquive(String path, String msg): void&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ WriteArquiveSent(Message message): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ WriteArquiveDestiny(Message message): void&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;+ getMenssages(String path):Lis&amp;lt;Menssage&amp;gt;&lt;/p&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="452" y="730" width="328" height="110" as="geometry"/>
+                <mxCell id="168" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Arquive&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;span&gt;+ WriteArquive(String path, String msg): void&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ WriteArquiveSent(Message message): void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ WriteArquiveDestiny(Message message): void&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;+ getMenssages(String path):Lis&amp;lt;Menssage&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ getFriends(String path): List&amp;lt;Friends&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ getValue(String path): Message&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ getAccounts(String path): List&amp;lt;Account&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ getEmail(String path): List&amp;lt;Email&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ WriteArquiveDontErase(String msg, String path): void&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ getFrindes(String path): List&amp;lt;Account&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ eraseLine(String path, int position, List&amp;lt;Friends&amp;gt; listF,&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&amp;nbsp; &amp;nbsp;CreateArquiveService ca): void&amp;nbsp;&lt;/p&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="730" width="410" height="220" as="geometry"/>
                 </mxCell>
                 <mxCell id="169" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;" parent="1" source="127" target="168" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
@@ -126,27 +126,24 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="170" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ChatS&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ listFullChat(Account account): void&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;+ coinversation(int num, Account account): Chat&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="210" y="860" width="310" height="90" as="geometry"/>
+                    <mxGeometry x="14.5" y="850" width="310" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="172" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.459;exitY=0.875;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="133" target="170" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
                         <mxPoint x="369.0799999999999" y="650" as="sourcePoint"/>
                         <mxPoint x="490" y="720" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="310" y="810"/>
+                            <mxPoint x="220" y="830"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="175" value="Chat" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="30" y="-80" width="160" height="34" as="geometry"/>
-                </mxCell>
-                <mxCell id="177" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="175" vertex="1">
-                    <mxGeometry y="26" width="160" height="8" as="geometry"/>
-                </mxCell>
-                <mxCell id="180" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="175" target="202" edge="1">
+                <mxCell id="180" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=0.327;exitY=0.7;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="220" target="202" edge="1">
                     <mxGeometry x="-0.6667" y="10" relative="1" as="geometry">
-                        <mxPoint x="240" y="280" as="sourcePoint"/>
+                        <mxPoint x="110" y="-30" as="sourcePoint"/>
                         <mxPoint x="340" y="200" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="110" y="250"/>
-                            <mxPoint x="110" y="250"/>
+                            <mxPoint x="109" y="250"/>
                         </Array>
                         <mxPoint as="offset"/>
                     </mxGeometry>
@@ -259,6 +256,17 @@
                     <mxGeometry x="0.8342" relative="1" as="geometry">
                         <mxPoint x="22" y="12" as="offset"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="218" value="Chat" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="-110" width="150" height="70" as="geometry">
+                        <mxRectangle x="50" y="80" width="60" height="26" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="219" value="-position: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="218">
+                    <mxGeometry y="26" width="150" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="218">
+                    <mxGeometry y="60" width="150" height="10" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
