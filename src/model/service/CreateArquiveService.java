@@ -13,10 +13,11 @@ public class CreateArquiveService implements CreateArquive{
     public void createNewFolder(String path) throws ServiceExeption {
 
         File folder = new File(path);
-        if (folder.exists())
+        if (!folder.exists())
+            folder.mkdirs();
+        else 
             throw new ServiceExeption("Error: the folder exists");
-        if(!folder.mkdir())
-            throw new ServiceExeption("folder not created");
+
     }
 
     @Override
